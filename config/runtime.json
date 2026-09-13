@@ -1,0 +1,67 @@
+{
+  "default_persona": "mara",
+  "chat": {
+    "profile": "openai-baseline",
+    "profiles": {
+      "openai-baseline": {
+        "base_url": "https://api.openai.com/v1",
+        "model": "gpt-5.6-terra",
+        "api_key_env": "OPENAI_API_KEY",
+        "use_system_prompt": true
+      },
+      "together-finetuned": {
+        "base_url": "https://api.together.xyz/v1",
+        "model": "REPLACE_WITH_model_output_name_FROM_FINETUNE",
+        "api_key_env": "TOGETHER_API_KEY",
+        "use_system_prompt": false
+      }
+    },
+    "temperature": 0.9,
+    "max_output_tokens": 300,
+    "max_history_turns": 24
+  },
+  "prompt": {
+    "example_exchanges": 300,
+    "example_selection_seed": 11,
+    "max_example_chars": 900
+  },
+  "tts": {
+    "enabled": true,
+    "provider": "elevenlabs",
+    "api_key_env": "ELEVENLABS_API_KEY",
+    "model_id": "eleven_multilingual_v2",
+    "output_format": "mp3_44100_128",
+    "voice_settings": {
+      "stability": 0.4,
+      "similarity_boost": 0.85,
+      "style": 0.35,
+      "use_speaker_boost": true
+    },
+    "autoplay": true
+  },
+  "finetune": {
+    "provider": "together",
+    "api_key_env": "TOGETHER_API_KEY",
+    "base_model": "Qwen/Qwen3-8B",
+    "lora": {
+      "n_epochs": 3,
+      "batch_size": 8,
+      "learning_rate": 0.0001,
+      "lora_r": 32,
+      "lora_alpha": 64,
+      "lora_dropout": 0.05
+    }
+  },
+  "denoise": {
+    "declip": true,
+    "highpass_hz": 70,
+    "afftdn_nr": 12,
+    "afftdn_nf": -25,
+    "target_lufs": -16.0,
+    "true_peak": -1.5,
+    "lra": 11.0,
+    "bitrate": "192k",
+    "sample_rate": 44100,
+    "channels": 1
+  }
+}

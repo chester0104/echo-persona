@@ -1,0 +1,32 @@
+{
+	// Cloudflare Worker config. Secrets are set with `wrangler secret put`, never here.
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "echo-persona",
+	"main": "worker.js",
+	"compatibility_date": "2026-09-01",
+	// node:crypto for the TOTP code lives behind this flag.
+	"compatibility_flags": ["nodejs_compat"],
+	"assets": {
+		"binding": "ASSETS",
+		"directory": ".svelte-kit/cloudflare"
+	},
+	"observability": { "enabled": true },
+	// The personas live in KV, not in an env var. Values can be up to 25MB.
+	"kv_namespaces": [
+		{ "binding": "PERSONAS", "id": "cc5cadf3d4134f72bd325fffd5927b45" }
+	],
+	// One Durable Object per visitor IP for bursts, one named "daily" for the
+	// site budget. Exact counts, unlike the built in rate limit binding.
+	"durable_objects": {
+		"bindings": [{ "name": "LIMITER", "class_name": "Limiter" }]
+	},
+	"migrations": [{ "tag": "v1", "new_sqlite_classes": ["Limiter"] }],
+	"vars": {
+		"OPENAI_BASE_URL": "https://api.openai.com/v1",
+		"OPENAI_MODEL": "gpt-5.6-terra",
+		"ECHO_DAILY_MESSAGE_CAP": "80",
+		"ECHO_IP_BURST": "6",
+		"ECHO_UNLOCK_BURST": "5",
+		"ECHO_SHARED_VOICE_CAP": "25"
+	}
+}

@@ -1,0 +1,9 @@
+{
+	// Only adapter-cloudflare reads this. It tells the adapter where to write its
+	// worker so it does not overwrite worker.js, which is the real entry.
+	"name": "echo-persona",
+	"main": ".svelte-kit/cloudflare/_worker.js",
+	"compatibility_date": "2026-09-01",
+	"compatibility_flags": ["nodejs_compat"],
+	"assets": { "binding": "ASSETS", "directory": ".svelte-kit/cloudflare" }
+}

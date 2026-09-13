@@ -1,0 +1,174 @@
+/* Tailwind v4 config lives in CSS. The theme block below is the whole palette. */
+@import 'tailwindcss';
+
+@theme {
+	--color-void: #05030b;
+	--color-void-2: #0b0616;
+	--color-panel: #100a1f;
+	--color-edge: #2a1a4a;
+	--color-neon: #a855f7;
+	--color-neon-soft: #c084fc;
+	--color-cyan: #22d3ee;
+	--color-magenta: #f0f;
+	--color-dim: #8b7aa8;
+
+	--font-display: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+	--font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
+}
+
+:root {
+	color-scheme: dark;
+}
+
+html,
+body {
+	background: var(--color-void);
+	color: #e9e2f8;
+	font-family: var(--font-display);
+	min-height: 100%;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+@keyframes grid-drift {
+	from {
+		background-position:
+			0 0,
+			0 0;
+	}
+	to {
+		background-position:
+			0 -60px,
+			0 -60px;
+	}
+}
+
+@keyframes scan {
+	from {
+		transform: translateY(-100%);
+	}
+	to {
+		transform: translateY(100vh);
+	}
+}
+
+@keyframes pulse-glow {
+	0%,
+	100% {
+		opacity: 0.35;
+	}
+	50% {
+		opacity: 0.75;
+	}
+}
+
+@keyframes flicker {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	92% {
+		opacity: 1;
+	}
+	93% {
+		opacity: 0.72;
+	}
+	95% {
+		opacity: 1;
+	}
+	96% {
+		opacity: 0.85;
+	}
+}
+
+@keyframes rise {
+	from {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes blink {
+	0%,
+	49% {
+		opacity: 1;
+	}
+	50%,
+	100% {
+		opacity: 0;
+	}
+}
+
+.grid-floor {
+	background-image:
+		linear-gradient(to right, rgb(168 85 247 / 0.09) 1px, transparent 1px),
+		linear-gradient(to bottom, rgb(168 85 247 / 0.09) 1px, transparent 1px);
+	background-size: 60px 60px;
+	animation: grid-drift 6s linear infinite;
+}
+
+.scanline {
+	animation: scan 7s linear infinite;
+}
+
+.flicker {
+	animation: flicker 6s infinite;
+}
+
+.rise {
+	animation: rise 0.28s ease-out both;
+}
+
+.caret::after {
+	content: '_';
+	animation: blink 1.1s step-end infinite;
+}
+
+.noise {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+.neon-text {
+	text-shadow:
+		0 0 6px rgb(168 85 247 / 0.7),
+		0 0 22px rgb(168 85 247 / 0.35);
+}
+
+.panel {
+	background: linear-gradient(160deg, rgb(20 12 38 / 0.92), rgb(8 5 18 / 0.92));
+	border: 1px solid rgb(124 58 237 / 0.28);
+	box-shadow:
+		0 0 0 1px rgb(0 0 0 / 0.4),
+		0 18px 60px -20px rgb(88 28 135 / 0.55),
+		inset 0 1px 0 rgb(196 181 253 / 0.08);
+}
+
+.chat-scroll {
+	scrollbar-width: thin;
+	scrollbar-color: rgb(124 58 237 / 0.5) transparent;
+}
+
+.chat-scroll::-webkit-scrollbar {
+	width: 6px;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb {
+	background: rgb(124 58 237 / 0.5);
+	border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.grid-floor,
+	.scanline,
+	.flicker,
+	.rise,
+	.caret::after {
+		animation: none !important;
+	}
+}

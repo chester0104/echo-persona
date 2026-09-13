@@ -1,0 +1,41 @@
+MIT License
+
+Copyright (c) 2026 Tzu Yang Chen
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+USE OF THIS SOFTWARE
+
+This project clones how a real person writes and speaks. The MIT terms above
+cover the code only. They do not grant permission to clone anyone.
+
+Cloning a person's texting style or voice without their informed, explicit
+consent may be unlawful where you live, and is harmful regardless. Voice
+cloning in particular is regulated in a growing number of jurisdictions.
+
+Before you use this on anyone:
+  - get their clear, informed consent, for both text and voice separately
+  - tell them where the clone will run and who can talk to it
+  - honour any request to delete the clone, the derived data and the voice
+  - never present a clone's output as something the real person actually said
+
+The personas included by the author were created with the consent of the
+people involved.
